@@ -1,18 +1,7 @@
 defmodule Pinger do
-  @moduledoc """
-  Documentation for Pinger.
-  """
+  use Application
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Pinger.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def start(_type, _args) do
+    Pinger.Supervisor.start_link(name: Pinger.Supervisor)
   end
 end

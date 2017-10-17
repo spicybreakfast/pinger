@@ -3,10 +3,9 @@ defmodule Pinger.PeriodicTask do
 
   use GenServer
 
-  def start_link do
+  def start_link(opts) do
     GenServer.start_link(__MODULE__, %{})
   end
-
 
   def init(state) do
     schedule_work()
@@ -16,7 +15,7 @@ defmodule Pinger.PeriodicTask do
 
   def handle_info(:work, state) do
     msg = "just logging now"
-    IO.puts msg
+    #IO.puts msg
     Logger.info fn ->
       msg
     end
