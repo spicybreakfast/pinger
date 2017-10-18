@@ -1,8 +1,10 @@
-APP="myapp"
+APP="pinger"
+
+USING_DISTILLERY=true
 
 BUILD_HOST="96.126.125.52"
 BUILD_USER="deployer"
-BUILD_AT="/tmp/edeliver/pinger/builds"
+BUILD_AT="/tmp/edeliver/pinger/builds/pinger"
 
 STAGING_HOSTS="45.33.124.104"
 STAGING_USER="deployer"
