@@ -14,7 +14,7 @@ defmodule Pinger.Mixfile do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
+      extra_applications: [:logger, :edeliver],
       mod: {Pinger, []}
     ]
   end
@@ -22,7 +22,9 @@ defmodule Pinger.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      { :logger_file_backend, "~> 0.0.10" }
+      { :logger_file_backend, "~> 0.0.10" },
+      {:edeliver, "~> 1.4.4"},
+      {:distillery, ">= 0.8.0", warn_missing: false}
     ]
   end
 end

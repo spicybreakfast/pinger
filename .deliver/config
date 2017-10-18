@@ -1,0 +1,9 @@
+APP="myapp"
+
+BUILD_HOST="96.126.125.52"
+BUILD_USER="deployer"
+BUILD_AT="/tmp/edeliver/pinger/builds"
+
+STAGING_HOSTS="45.33.124.104"
+STAGING_USER="deployer"
+DELIVER_TO="/home/web"
