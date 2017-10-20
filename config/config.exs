@@ -19,7 +19,7 @@ use Mix.Config
 
 config :logger, backends: [{LoggerFileBackend, :info}]
 
-config :logger, :info, path: "/var/log/pinger.log", level: :info
+config :logger, :info, path: "logs/ping.log", level: :info
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
