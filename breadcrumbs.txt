@@ -18,3 +18,9 @@
 7608  mix edeliver update production
 7609  mix edeliver update staging
 7610  vim breadcrumbs.txt
+
+this is how to deploy new code:
+$ git push origin deploy
+$ mix edeliver build release --branch=deploy
+$ mix edeliver deploy release --branch=deploy
+$ mix edeliver restart production
