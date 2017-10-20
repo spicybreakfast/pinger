@@ -1,0 +1,20 @@
+7568  gc -m 'setup edeliver and distillery'
+7580  l
+7581  l _build
+7589  vim .deliver/config
+7591  ssh deployer@96.126.125.52
+7593  fg
+7595  MIX_ENV=prod mix release --verbosity=verbose
+7596  MIX_ENV=prod mix release
+7597  h | grep "mix release"
+7599  MIX_ENV=prod mix release.init --env=prod
+7600  MIX_ENV=prod mix release.init
+7601  MIX_ENV=prod mix release --env=prod
+7602  gs
+7603  git add .
+7604  gc -m 'add more deploy configs'
+7605  git push origin deploy
+7607  mix edeliver update
+7608  mix edeliver update production
+7609  mix edeliver update staging
+7610  vim breadcrumbs.txt

@@ -8,4 +8,7 @@ BUILD_AT="/tmp/edeliver/pinger/builds/pinger"
 
 STAGING_HOSTS="45.33.124.104"
 STAGING_USER="deployer"
-DELIVER_TO="/home/web"
+
+PRODUCTION_HOSTS="45.33.124.104"
+PRODUCTION_USER="deployer"
+DELIVER_TO="/opt/pinger"
