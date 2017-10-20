@@ -19,6 +19,14 @@
 7609  mix edeliver update staging
 7610  vim breadcrumbs.txt
 
+this is the log from a deploy (a little over 10 seconds of downtime)
+23:05:38.975 [info] new logging message
+23:05:40.976 [info] new logging message
+23:05:42.978 [info] new logging message
+23:05:53.447 [info] http://traviserard.com is ok :)
+23:05:56.336 [info] http://traviserard.com is ok :)
+23:05:58.409 [info] http://traviserard.com is ok :)
+
 this is how to deploy new code:
 $ git push origin deploy
 $ mix edeliver build release --branch=deploy

@@ -37,6 +37,6 @@ defmodule Pinger.PeriodicTask do
 
 
   defp schedule_work() do
-    Process.send_after(self(), :work, 2000) # in 2 seconds
+    Process.send_after(self(), :work, 60000) # in 2 seconds
   end
 end
