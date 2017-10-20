@@ -3,7 +3,7 @@ defmodule Pinger.PeriodicTask do
 
   use GenServer
 
-  def start_link(opts) do
+  def start_link(_opts) do
     GenServer.start_link(__MODULE__, %{})
   end
 
@@ -14,8 +14,19 @@ defmodule Pinger.PeriodicTask do
   end
 
   def handle_info(:work, state) do
-    msg = "new logging message"
-    IO.puts msg
+    #IO.puts msg
+    url = "http://traviserard.com"
+
+    msg =
+    case HTTPoison.get(url) do
+      {:ok, %HTTPoison.Response{status_code: 200}} ->
+        "#{url} is ok :)"
+      {:ok, %HTTPoison.Response{status_code: 404}} ->
+        "#{url} not found :("
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        "#{url} error: #{reason}"
+    end
+
     Logger.info fn ->
       msg
     end
