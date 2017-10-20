@@ -14,7 +14,7 @@ defmodule Pinger.PeriodicTask do
   end
 
   def handle_info(:work, state) do
-    msg = "just logging now"
+    msg = "new logging message"
     IO.puts msg
     Logger.info fn ->
       msg
