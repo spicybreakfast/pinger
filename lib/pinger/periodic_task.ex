@@ -3,8 +3,8 @@ defmodule Pinger.PeriodicTask do
 
   use GenServer
 
-  def start_link(_opts) do
-    GenServer.start_link(__MODULE__, %{url: "http://traviserard.com"})
+  def start_link(opts) do
+    GenServer.start_link(__MODULE__, opts)
   end
 
   def init(state) do
@@ -36,8 +36,12 @@ defmodule Pinger.PeriodicTask do
         "#{url} is ok :)"
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         "#{url} not found :("
+      {:ok, %HTTPoison.Response{status_code: 301}} ->
+        "#{url} is a redirect."
       {:error, %HTTPoison.Error{reason: reason}} ->
         "#{url} error: #{reason}"
+      {:ok, %HTTPoison.Response{status_code: code}} ->
+        "#{url} unhandled code: #{code}"
     end
 
     IO.puts msg
