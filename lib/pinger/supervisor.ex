@@ -5,11 +5,13 @@ defmodule Pinger.Supervisor do
     Supervisor.start_link(__MODULE__, :ok, opts)
   end
 
-  def init(:ok) do
-    children = [
-      Pinger.PeriodicTask
-    ]
+  def start_ping do
+    Supervisor.start_child(Pinger.Supervisor, [])
+  end
 
-    Supervisor.init(children, strategy: :one_for_one)
+  def init(:ok) do
+    Supervisor.init([
+      {Pinger.PeriodicTask, %{url: "http://traviserard.com"}}
+    ], strategy: :simple_one_for_one)
   end
 end
