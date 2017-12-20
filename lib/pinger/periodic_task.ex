@@ -27,7 +27,7 @@ defmodule Pinger.PeriodicTask do
   end
 
   defp schedule_work() do
-    Process.send_after(self(), :work, 6000) # in 1 minute
+    Process.send_after(self(), :work, 10000) # in 1 minute
   end
 
   defp ping(url) do

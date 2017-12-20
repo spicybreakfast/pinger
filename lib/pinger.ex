@@ -2,6 +2,11 @@ defmodule Pinger do
   use Application
 
   def start(_type, _args) do
-    Pinger.Supervisor.start_link(name: Pinger.Supervisor)
+    children = [
+      Pinger.PingSupervisor
+      #,Pinger.Starter
+    ]
+
+    Supervisor.start_link(children, strategy: :one_for_one, name: Pinger.Supervisor)
   end
 end
