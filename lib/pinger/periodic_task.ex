@@ -44,7 +44,7 @@ defmodule Pinger.PeriodicTask do
         "#{url} unhandled code: #{code}"
     end
 
-    IO.puts msg
+    #IO.puts msg
     Logger.info fn ->
       msg
     end

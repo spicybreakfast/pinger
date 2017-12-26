@@ -3,8 +3,8 @@ defmodule Pinger do
 
   def start(_type, _args) do
     children = [
-      Pinger.PingSupervisor
-      #,Pinger.Starter
+      Pinger.PingSupervisor,
+      {Pinger.PingStarter, restart: :transient}
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one, name: Pinger.Supervisor)
