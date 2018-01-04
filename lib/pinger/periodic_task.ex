@@ -20,14 +20,14 @@ defmodule Pinger.PeriodicTask do
   end
 
   def handle_info(:work, state) do
-    ping(state.url)
+    spawn_link(fn -> ping(state.url) end)
 
     schedule_work()
     {:noreply, state}
   end
 
   defp schedule_work() do
-    Process.send_after(self(), :work, 10000) # in 1 minute
+    Process.send_after(self(), :work, 5 * 60 * 1000)
   end
 
   defp ping(url) do
@@ -44,7 +44,6 @@ defmodule Pinger.PeriodicTask do
         "#{url} unhandled code: #{code}"
     end
 
-    #IO.puts msg
     Logger.info fn ->
       msg
     end
