@@ -14,6 +14,7 @@ defmodule Pinger.PeriodicTask do
       start_msg
     end
 
+    spawn_link(fn -> ping(state.url) end)
     schedule_work()
 
     {:ok, state}
