@@ -10,29 +10,30 @@ defmodule Pinger.PeriodicTask do
   def init(state) do
     start_msg = "starting ping for #{state.url}"
     IO.puts start_msg
-    Logger.info fn ->
-      start_msg
-    end
+    log start_msg
 
-    spawn_link(fn -> ping(state.url) end)
+    ping_with_logging(state)
     schedule_work()
 
     {:ok, state}
   end
 
   def handle_info(:work, state) do
-    spawn_link(fn -> ping(state.url) end)
 
     schedule_work()
+    ping_with_logging(state)
+
+
     {:noreply, state}
   end
 
   defp schedule_work() do
-    Process.send_after(self(), :work, 5 * 60 * 1000)
+    minutes = 5
+    Process.send_after(self(), :work, minutes * 60 * 1000)
   end
 
   defp ping(url) do
-    msg = case HTTPoison.get(url) do
+    case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200}} ->
         "#{url} is ok :)"
       {:ok, %HTTPoison.Response{status_code: 404}} ->
@@ -44,10 +45,16 @@ defmodule Pinger.PeriodicTask do
       {:ok, %HTTPoison.Response{status_code: code}} ->
         "#{url} unhandled code: #{code}"
     end
+  end
 
+  defp ping_with_logging(state) do
+    start_ping = Task.async(fn -> ping(state.url) end)
+    log Task.await start_ping
+  end
+
+  defp log(msg) do
     Logger.info fn ->
       msg
     end
   end
-
 end
