@@ -15,6 +15,7 @@ defmodule Pinger.Mixfile do
   def application do
     [
       extra_applications: [:logger, :httpoison, :edeliver],
+      #extra_applications: [:logger, :httpoison, :edeliver, :postgrex, :ecto],
       mod: {Pinger, []}
     ]
   end
@@ -25,7 +26,9 @@ defmodule Pinger.Mixfile do
       {:logger_file_backend, "~> 0.0.10" },
       {:edeliver, "~> 1.4.4"},
       {:distillery, ">= 0.8.0", warn_missing: false},
-      {:httpoison, "~> 0.13"}
+      {:httpoison, "~> 0.13"},
+      {:ecto, "~> 2.0"},
+      {:postgrex, "~> 0.11"}
     ]
   end
 end

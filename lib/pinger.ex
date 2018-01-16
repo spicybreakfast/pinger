@@ -3,6 +3,7 @@ defmodule Pinger do
 
   def start(_type, _args) do
     children = [
+      Pinger.Repo,
       Pinger.PingSupervisor,
       {Pinger.PingStarter, restart: :transient}
     ]
