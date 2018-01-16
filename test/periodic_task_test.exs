@@ -1,5 +1,3 @@
-require IEx;
-
 defmodule Pinger.PeriodicTaskTest do
   use ExUnit.Case, async: true
 
@@ -7,15 +5,11 @@ defmodule Pinger.PeriodicTaskTest do
   import ExUnit.CaptureLog
   require Logger
 
-  setup do
-    #{:ok, periodic_task} = start_supervised({Pinger.PeriodicTask, %{url: "http://example.com"}})
-    #%{periodic_task: periodic_task}
+  #setup do
+    #{:ok, starter} = start_supervised({Pinger.PingStarter, restart: :transient})
 
-    {:ok, starter} = start_supervised({Pinger.PingStarter, restart: :transient})
-
-    IEx.pry
-    %{starter: starter}
-  end
+    #%{starter: starter}
+  #end
 
   test "" do
     assert {:noreply, %{url: "http://example.com"}} == Pinger.PeriodicTask.handle_info(:work, %{url: "http://example.com"})
