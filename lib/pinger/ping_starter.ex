@@ -6,10 +6,10 @@ defmodule Pinger.PingStarter do
   end
 
   def run do
-    urls = ["http://traviserard.com", "http://trav.co", "http://orbular.com", "http://automatemysmall.biz"]
+    urls = Pinger.Ping |> Pinger.Repo.all
 
     Enum.each(urls, fn url ->
-      Pinger.PingSupervisor.start_ping(%{url: url})
+      Pinger.PingSupervisor.start_ping(%{url: url.url})
     end)
   end
 end

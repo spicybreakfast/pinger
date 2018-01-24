@@ -11,7 +11,7 @@ defmodule Pinger.PeriodicTaskTest do
     #%{starter: starter}
   #end
 
-  test "" do
+  test "handle info" do
     assert {:noreply, %{url: "http://example.com"}} == Pinger.PeriodicTask.handle_info(:work, %{url: "http://example.com"})
   end
 
