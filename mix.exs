@@ -28,8 +28,7 @@ defmodule Pinger.Mixfile do
       {:distillery, ">= 0.8.0", warn_missing: false},
       {:httpoison, "~> 0.13"},
       {:ecto, "~> 2.0"},
-      {:postgrex, "~> 0.11"},
-      {:mox, "~> 0.3", only: :test}
+      {:postgrex, "~> 0.11"}
     ]
   end
 end
