@@ -1,5 +1,7 @@
 APP="pinger"
 
+AUTO_VERSION=git-revision+branch-unless-master
+
 USING_DISTILLERY=true
 
 BUILD_HOST="96.126.125.52"
