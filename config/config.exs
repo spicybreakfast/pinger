@@ -23,6 +23,7 @@ config :logger,
        :info,
        path: "logs/ping.log",
        level: :info,
+       #env: "#{Mix.env}",
        format: "\n$date $time $metadata[$level] $levelpad$message"
 
 # It is also possible to import configuration files, relative to this
@@ -31,4 +32,4 @@ config :logger,
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
 #
-#     import_config "#{Mix.env}.exs"
+import_config "#{Mix.env}.exs"

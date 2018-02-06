@@ -30,6 +30,6 @@ defmodule Pinger.PeriodicTaskTest do
   test "logs Mix.env as part of message" do
     assert capture_log(fn ->
       Pinger.PeriodicTask.handle_info(:work, %{url: "http://example.com"})
-    end) =~ "[test]"
+    end) =~ "[TEST]"
   end
 end

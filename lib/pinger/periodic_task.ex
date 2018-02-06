@@ -35,7 +35,7 @@ defmodule Pinger.PeriodicTask do
   defp ping(url) do
     case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200}} ->
-        "#{Mix.env} #{url} is ok :)"
+        "#{url} is ok :)"
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         "#{url} not found :("
       {:ok, %HTTPoison.Response{status_code: 301}} ->
@@ -53,7 +53,8 @@ defmodule Pinger.PeriodicTask do
   end
 
   defp log(msg) do
-    prefix = "[#{Mix.env}]"
+    env = Application.get_env(:pinger, :env)
+    prefix = String.upcase "[#{env}]"
 
     Logger.info fn ->
       "#{prefix} #{msg}"
