@@ -1,0 +1,11 @@
+{application,pinger,
+             [{applications,[kernel,stdlib,elixir,logger,httpoison,edeliver,
+                             logger_file_backend,distillery]},
+              {description,"pinger"},
+              {modules,['Elixir.Pinger','Elixir.Pinger.PeriodicTask',
+                        'Elixir.Pinger.PingStarter',
+                        'Elixir.Pinger.PingSupervisor']},
+              {registered,[]},
+              {vsn,"0.1.1+81b7313"},
+              {extra_applications,[logger,httpoison,edeliver]},
+              {mod,{'Elixir.Pinger',[]}}]}.
