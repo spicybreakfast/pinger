@@ -35,6 +35,7 @@ $ mix edeliver restart production
 
 for upgrade (where v0.1.1 is the current git tag):
 $ mix edeliver build release <- maybe ???
+$ mix edeliver build deploy  <- maybe ???
 $ mix edeliver build upgrade --from=v0.1.1
 $ mix edeliver deploy upgrade
 the git tag does not have to be updated ^^^

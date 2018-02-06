@@ -4,7 +4,7 @@ defmodule Pinger.Mixfile do
   def project do
     [
       app: :pinger,
-      version: "0.1.1",
+      version: "0.1.2",
       elixir: "~> 1.6",
       start_permanent: Mix.env == :prod,
       deps: deps()
@@ -23,7 +23,7 @@ defmodule Pinger.Mixfile do
   defp deps do
     [
       {:logger_file_backend, "~> 0.0.10" },
-      {:edeliver, "~> 1.4.4"},
+      {:edeliver, "~> 1.4.5"},
       {:distillery, ">= 0.8.0", warn_missing: false},
       {:httpoison, "~> 0.13"}
     ]
