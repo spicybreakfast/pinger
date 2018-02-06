@@ -5,7 +5,7 @@ defmodule Pinger.Mixfile do
     [
       app: :pinger,
       version: "0.1.1",
-      elixir: "~> 1.5",
+      elixir: "~> 1.6",
       start_permanent: Mix.env == :prod,
       deps: deps()
     ]
