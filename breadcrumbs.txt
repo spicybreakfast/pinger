@@ -41,3 +41,9 @@ $ mix edeliver deploy upgrade
 the git tag does not have to be updated ^^^
 when asked, choose the release that is auto-tagged with the latest git sha
 this is not exactly working ^^^
+it might be the auto-versioning: https://github.com/edeliver/edeliver/issues/123
+not working even after I turn off autoversioning.
+
+hot upgrades may not be needed? The whole ping cycle could reset and maybe
+wont't miss anything? or I can do a distributed setup where any time one node drops off
+another node picks up those pings and gets after it.
