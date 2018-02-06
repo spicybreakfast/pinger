@@ -23,8 +23,7 @@ config :logger,
        :info,
        path: "logs/ping.log",
        level: :info,
-       #env: "#{Mix.env}",
-       format: "\n$date $time $metadata[$level] $levelpad$message"
+       format: "\n$date $time $levelpad$message"
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment

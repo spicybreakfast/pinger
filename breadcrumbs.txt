@@ -32,3 +32,8 @@ $ git push origin deploy
 $ mix edeliver build release --branch=deploy
 $ mix edeliver deploy release --branch=deploy
 $ mix edeliver restart production
+
+for upgrade (where v0.1.1 is the current git tag):
+$ mix edeliver build upgrade --with=v0.1.1
+$ mix edeliver deploy upgrade
+the git tag does not have to be updated ^^^
