@@ -21,9 +21,15 @@ defmodule Pinger.PeriodicTaskTest do
     end) =~ "starting ping for"
   end
 
-  test "logs stuff" do
+  test "logs message from periodic task" do
     assert capture_log(fn ->
       Pinger.PeriodicTask.handle_info(:work, %{url: "http://example.com"})
     end) =~ "http://example.com is ok"
+  end
+
+  test "logs Mix.env as part of message" do
+    assert capture_log(fn ->
+      Pinger.PeriodicTask.handle_info(:work, %{url: "http://example.com"})
+    end) =~ "[test]"
   end
 end
